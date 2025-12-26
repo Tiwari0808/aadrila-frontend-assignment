@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+:root {
+  --font-raleway: "Raleway", sans-serif;
+  --font-manrope: "Manrope", sans-serif;
+}
+
+/* Force Tailwind utilities to use real fonts */
+.font-raleway {
+  font-family: var(--font-raleway);
+}
+
+.font-manrope {
+  font-family: var(--font-manrope);
+}
+

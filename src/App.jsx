@@ -8,15 +8,9 @@ export default function App() {
 
   return (
     <LayoutGroup>
-      {/* Home is always rendered, but hidden behind the loader initially */}
       {!loading && <Home />}
-
-      {/* IntroLogo sits on top and disappears when loading is false */}
+      
       {loading && <IntroLogo onComplete={() => setLoading(false)} />}
     </LayoutGroup>
   );
 }
-
-
-
-
