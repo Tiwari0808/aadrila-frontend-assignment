@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LayoutGroup } from "framer-motion";
+import { AnimatePresence, LayoutGroup } from "framer-motion";
 import IntroLogo from "./components/IntroLogo";
 import Home from "./pages/Home";
 
@@ -8,9 +8,13 @@ export default function App() {
 
   return (
     <LayoutGroup>
-      {!loading && <Home />}
-      
-      {loading && <IntroLogo onComplete={() => setLoading(false)} />}
+      <AnimatePresence mode="wait">
+        {loading ? (
+          <IntroLogo key="loader" onComplete={() => setLoading(false)} />
+        ) : (
+          <Home key="home" />
+        )}
+      </AnimatePresence>
     </LayoutGroup>
   );
 }

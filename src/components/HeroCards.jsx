@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 
 const states = [
   ["License.png", "Doc.png", "invoice.png"],
@@ -7,7 +7,7 @@ const states = [
   ["Doc.png", "invoice.png", "License.png"],
 ];
 
-export default function HeroCards() {
+function HeroCards() {
   const [step, setStep] = useState(0);
 
   useEffect(() => {
@@ -28,23 +28,19 @@ export default function HeroCards() {
         let zIndexVal = 1;
         let blurVal = "0px";
 
-        // Slot layout
         if (i === 0) {
-          // LEFT (small + blurred)
           xVal = -220;
           yVal = 40;
           scaleVal = 0.6;
           zIndexVal = 5;
           blurVal = "12px";
         } else if (i === 1) {
-          // CENTER (main)
           xVal = 0;
           yVal = 0;
           scaleVal = 1;
           zIndexVal = 10;
           blurVal = "0px";
         } else {
-          // RIGHT (small + blurred)
           xVal = 220;
           yVal = 40;
           scaleVal = 0.6;
@@ -77,6 +73,7 @@ export default function HeroCards() {
               {/* Card image */}
               <img
                 src={`/${img}`}
+                loading="lazy"
                 className="w-full object-contain"
                 alt="Hero Card"
               />
@@ -107,3 +104,5 @@ export default function HeroCards() {
     </div>
   );
 }
+
+export default memo(HeroCards);

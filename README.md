@@ -1,16 +1,29 @@
-# React + Vite
+# Aadrila AI – Frontend Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a Figma-to-code implementation of the Aadrila AI landing experience, focused mainly on the loading screen and hero section, which are the most animation-heavy parts of the design.
 
-Currently, two official plugins are available:
+## What’s included
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- A branded loading screen with a smooth logo reveal and transition into the navbar  
+- An animated hero section with three rotating document cards  
+- A vertical scan effect on the front card to represent AI document processing  
+- Desktop layout matched closely to the Figma  
+- Responsive behavior for smaller screens  
 
-## React Compiler
+## How it works
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The hero cards are driven by a small state-based rotation system.  
+Three documents move between left, center, and right positions, with size and blur changing to create depth and focus.
 
-## Expanding the ESLint configuration
+The scan animation runs only when a card is in the center, so it feels tied to user focus instead of looping randomly.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The loader and navbar share the same logo using Framer Motion’s layout animation for a smooth transition.
+
+## Notes
+
+I focused on the most complex and user-facing parts of the design (loader and hero) to keep quality high within the available time. The remaining sections can be added in the same structure if needed.
+
+## Tech
+
+React, Tailwind CSS, Framer Motion
+
